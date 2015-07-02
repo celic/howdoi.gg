@@ -4,10 +4,10 @@ development:
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASS'] %>
   host: localhost
-  key: < riot games API key >
+  api_key: < riot games API key >
 production:
   adapter: postgresql
   database: howdoi_production
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASS'] %>
-  key: < riot games API key >
+  api_key: < riot games API key >
