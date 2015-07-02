@@ -15,11 +15,11 @@ current_items_full = JSON.parse current_items_json.read
 
 items_list = current_items_full['data']
 
+# Purge items
+Item.delete_all
+
 # Add list of items
 items_list.each do |item|
-
-	# Purge items
-	Item.delete_all
 
 	# Add to the db
 	Item.create(riot_id: item[1]["id"], name: item[1]["name"], desc: item[1]["description"])
