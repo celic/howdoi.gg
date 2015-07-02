@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150702025841) do
   enable_extension "plpgsql"
 
   create_table "champions", force: :cascade do |t|
-    t.integer  "riot_id"
+    t.string   "riot_id"
     t.string   "name"
     t.string   "desc"
     t.datetime "created_at"
