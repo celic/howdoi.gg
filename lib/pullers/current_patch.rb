@@ -24,9 +24,6 @@ if last_patch != nil
 		
 		# Create patch
 		Patch.create(number: current_patch)
-
-		# Initialize champion puller
-		require_relative 'current_champions'
 	end
 else
 
