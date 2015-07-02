@@ -88,7 +88,7 @@ h3 {
 
 				text-decoration: none;
 
-				color: #7A3099;
+				color: #7a3099;
 			}
 
 		.bar .links li:last-child {
@@ -106,7 +106,7 @@ h3 {
 
 	font-size: 1.5em;
 
-	border: 3px solid #7A3099;
+	border: 3px solid #7a3099;
 	border-radius: 4px;
 }
 
@@ -115,3 +115,12 @@ h3 {
 
 		outline: none;
 	}
+
+/* === ONE OFFS =================================== */
+
+.home {
+
+	margin-top: 15vh;
+
+	text-align: center;
+}

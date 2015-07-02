@@ -8,6 +8,9 @@ gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 
+# Using partial support for Sinatra
+gem 'sinatra-partial'
+
 # Using postgres as the DBMS
 gem 'pg'
 
