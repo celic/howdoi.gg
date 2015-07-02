@@ -1,0 +1,5 @@
+# Ignore logging files
+logs
+
+# Ignore local gems
+Gemfile.lock

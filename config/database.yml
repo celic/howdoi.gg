@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: howdoi_development
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %>
+  host: localhost
+production:
+  adapter: postgresql
+  database: howdoi_production
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %>
