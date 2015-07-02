@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702025841) do
+ActiveRecord::Schema.define(version: 20150702051153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "champions", force: :cascade do |t|
+    t.string   "riot_id"
+    t.string   "name"
+    t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: :cascade do |t|
     t.string   "riot_id"
     t.string   "name"
     t.string   "desc"
