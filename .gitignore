@@ -3,3 +3,6 @@ logs
 
 # Ignore local gems
 Gemfile.lock
+
+# Hide API keys
+database.yml
