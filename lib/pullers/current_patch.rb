@@ -3,21 +3,24 @@ require 'rubygems'
 require 'json'
 require 'open-uri'
 require 'sinatra/activerecord'
-require 'sinatra/config_file'
 
-yaml = YAML.load_file("/config/database.yml")
-yaml.each_pair do |key, value|
-    set(key.to_sym, value)
+require_relative '../../models/patch'
+
+# Find API key
+db = YAML.load(ERB.new(File.read(File.join("config","database.yml"))).result)
+api_key = db['api']['key']
+
+current_patch_json = open("https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm?api_key=#{api_key}")
+current_patch_full = JSON.parse current_patch_json.read
+
+current_patch = current_patch_full['dd']
+
+last_patch = Patch.last
+
+if last_patch != nil
+	if current_patch != Patch.last.number
+		Patch.create(number: current_patch)
+	end
+else
+	Patch.create(number: current_patch)
 end
-
-puts yaml
-
-#config_file "../../config/database.yml"
-
-api_key = settings.development.api_key
-
-puts api_key
-
-#game_stats_file = open("https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm?api_key=#{api_key}")
-
-puts "done"
