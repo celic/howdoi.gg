@@ -121,10 +121,19 @@ h3 {
 
 .champions {
 
+	max-height: 90px;
+
 	text-align: center;
 
 	overflow: hidden;
+
+	transition: max-height 4s;
 }
+
+	.champions.full {
+
+		max-height: 3000px;
+	}
 
 	.champions img {
 
