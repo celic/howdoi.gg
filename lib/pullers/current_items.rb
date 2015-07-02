@@ -10,7 +10,7 @@ require_relative '../../models/item'
 db = YAML.load(ERB.new(File.read(File.join("config","database.yml"))).result)
 api_key = db['api']['key']
 
-current_items_json = open("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=info&api_key=#{api_key}")
+current_items_json = open("https://global.api.pvp.net/api/lol/static-data/na/v1.2/item?&api_key=#{api_key}")
 current_items_full = JSON.parse current_items_json.read
 
 items_list = current_items_full['data']
