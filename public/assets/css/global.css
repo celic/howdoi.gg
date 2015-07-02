@@ -116,12 +116,57 @@ h3 {
 		outline: none;
 	}
 
+
+/* === CHAMPION LIST ============================== */
+
+.champions {
+
+	text-align: center;
+
+	overflow: hidden;
+}
+
+	.champions img {
+
+		margin-bottom: 3px;
+
+		width: 9.5%;
+	}
+
+.see-more {
+
+	display: block;
+
+	margin: 10px 0;
+	padding: 4px 0;
+
+	font-family: 'Roboto Condensed';
+
+	text-transform: uppercase;
+	text-align: center;
+
+	color: #333;
+
+	border-radius: 4px;
+
+	cursor: pointer;
+}
+
+	.see-more:hover,
+	.see-more:focus {
+
+		text-decoration: none;
+	
+		background-color: #ddd;
+
+		color: #333;
+	}
+
 /* === ONE OFFS =================================== */
 
 .home {
 
-	margin-top: 10vh;
-	margin-bottom: 10vh;
+	margin-top: 20vh;
 
 	text-align: center;
 }
