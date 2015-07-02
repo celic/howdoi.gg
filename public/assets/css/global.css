@@ -24,3 +24,62 @@ h3 {
 	font-family: 'Roboto Condensed';
 	font-weight: 400;
 }
+
+/* === NAVBAR ===================================== */
+
+.bar {
+
+	padding: 1em 0;
+
+	background-color: #ffffff;
+
+	border-bottom: 1px solid #e7e7e7;
+}
+
+	.bar .logo {
+
+		font-size: 2em;
+		font-weight: 900;
+
+		color: #8e44ad;
+	}
+
+		.bar .logo:hover,
+		.bar .logo:focus {
+
+			text-decoration: none;
+		}
+
+	.bar .links {
+
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		float: right;
+	}
+
+		.bar .links li {
+
+			display: inline-block;
+
+			margin-right: 1em;
+		}
+
+			.bar .links > li > a {
+
+				font-family: 'Roboto Condensed';
+				font-size: 1.3em;
+
+				text-transform: uppercase;
+
+				line-height: 2em;
+
+				color: #8e44ad;
+			}
+
+		.bar .links li:last-child {
+
+			margin-right: 0;
+		}
