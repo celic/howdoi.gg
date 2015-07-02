@@ -29,7 +29,7 @@ h3 {
 
 .bar {
 
-	padding: 1em 0;
+	padding: 1.8em 0;
 
 	background-color: #ffffff;
 
@@ -95,3 +95,23 @@ h3 {
 
 			margin-right: 0;
 		}
+
+/* === INPUTS ===================================== */
+
+.search {
+
+	padding: 0.4em 1em;
+
+	width: 100%;
+
+	font-size: 1.5em;
+
+	border: 3px solid #7A3099;
+	border-radius: 4px;
+}
+
+	.search:active,
+	.search:focus {
+
+		outline: none;
+	}
