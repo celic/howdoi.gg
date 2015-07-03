@@ -8,8 +8,8 @@ gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 
-# Using ConfigFile for key access
-gem 'sinatra-config-file'
+# Using partial support for Sinatra
+gem 'sinatra-partial'
 
 # Using postgres as the DBMS
 gem 'pg'

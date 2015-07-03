@@ -29,7 +29,7 @@ h3 {
 
 .bar {
 
-	padding: 1em 0;
+	padding: 1.8em 0;
 
 	background-color: #ffffff;
 
@@ -88,10 +88,94 @@ h3 {
 
 				text-decoration: none;
 
-				color: #7A3099;
+				color: #7a3099;
 			}
 
 		.bar .links li:last-child {
 
 			margin-right: 0;
 		}
+
+/* === INPUTS ===================================== */
+
+.search {
+
+	padding: 0.4em 1em;
+
+	width: 100%;
+
+	font-size: 1.5em;
+
+	border: 3px solid #7a3099;
+	border-radius: 4px;
+}
+
+	.search:active,
+	.search:focus {
+
+		outline: none;
+	}
+
+
+/* === CHAMPION LIST ============================== */
+
+.champions {
+
+	max-height: 90px;
+
+	text-align: center;
+
+	overflow: hidden;
+
+	transition: max-height 4s;
+}
+
+	.champions.full {
+
+		max-height: 3000px;
+	}
+
+	.champions img {
+
+		margin-bottom: 3px;
+
+		width: 9.5%;
+	}
+
+.see-more {
+
+	display: block;
+
+	margin: 10px 0;
+	padding: 4px 0;
+
+	font-family: 'Roboto Condensed';
+
+	text-transform: uppercase;
+	text-align: center;
+
+	color: #333;
+
+	border-radius: 4px;
+
+	cursor: pointer;
+}
+
+	.see-more:hover,
+	.see-more:focus {
+
+		text-decoration: none;
+	
+		background-color: #ddd;
+
+		color: #333;
+	}
+
+/* === ONE OFFS =================================== */
+
+.home {
+
+	margin-top: 20vh;
+
+	text-align: center;
+}
