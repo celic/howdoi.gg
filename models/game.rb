@@ -7,6 +7,7 @@
 #  red_team  :integer          default("{}"), is an Array
 #  winner    :boolean
 #  time      :integer          default("0")
+#  riot_id   :string
 #
 
 class Game < ActiveRecord::Base
