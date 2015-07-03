@@ -5,6 +5,7 @@ class AddsGamesTable < ActiveRecord::Migration
   	  t.integer :red_team, array: true, default: []
   	  t.boolean :winner
   	  t.integer :time, default: 0
+  	  t.string :riot_id
   	end
   end
 end

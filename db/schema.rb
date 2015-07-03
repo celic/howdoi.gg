@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150703030652) do
     t.integer "red_team",  default: [], array: true
     t.boolean "winner"
     t.integer "time",      default: 0
+    t.string  "riot_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150703030652) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
+    t.string "riot_id"
   end
 
 end
