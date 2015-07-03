@@ -1,5 +1,8 @@
 <%= partial :'layouts/navbar' %>
 
 <div class="container">
-	<h1><%= @champion.name %></h1>
+	<h1>
+		<%= @champion.name %>
+		<span><%= @champion.desc %></span>
+	</h1>
 </div>
