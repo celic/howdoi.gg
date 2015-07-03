@@ -16,11 +16,11 @@ current_champs_full = JSON.parse current_champs_json.read
 champ_list = current_champs_full['data']
 
 # Add list of champions
-champ_list.each do |name, champ|
+champ_list.each do |key, champ|
 
 	# Check if champion is already in the db
-	unless Champion.find_by name: champ['name']
-		Champion.create(riot_id: champ['id'], name: name, desc: champ['title'], key: champ['key'], free: false)
+	unless Champion.find_by key: champ['key']
+		Champion.create(riot_id: champ['id'], name: champ['name'], desc: champ['title'], key: key, free: false)
 	end
 end
 
