@@ -27,6 +27,7 @@ end
 # Set all champions to not free
 Champion.all.each do |champ|
 	champ.free = false
+	champ.save
 end
 
 # Get list of free champions
