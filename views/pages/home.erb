@@ -3,14 +3,14 @@
 		<div class="col-xs-12 col-md-6 col-md-offset-3 home">
 			<h1>howdoi.gg</h1>
 			<p>Simple, statistic driven guides pulled from only the best players in NA</p>
-			<input type="text" id="champion" name="champion" placeholder="Champion" class="search">
+			<input type="text" id="filter" name="champion" placeholder="Champion" class="search">
 		</div>
 	</div>
 
 	<div class="row" style="margin-bottom: 10vh;">
 		<div class="col-xs-12 col-md-10 col-md-offset-1">
 			<h3 id="title">Free Champions</h3>
-			<%= partial :'layouts/champ_list', locals: { list: @champs, sifter: 'champion' } %>
+			<%= partial :'layouts/champ_list', locals: { list: @champs } %>
 
 			<a class="see-more">See More</a>
 		</div>
@@ -33,6 +33,39 @@
 			}else {
 				$('.see-more').text('See More');
 				$('#title').text('Free Champions');
+			}
+		});
+
+		$('#filter').on('keyup', function( event ) {
+
+			var search = this.value.toLowerCase();
+			
+			$('img').show();
+
+			$('img').each(function() {
+
+				if(this.id.toLowerCase().indexOf(search) != 0) {
+
+					$(this).hide();
+				}
+			});
+
+			if(search != "") {
+
+				$('#title').text('Search: ' + search);
+
+			}else if($('.champions').hasClass('full')) {
+
+				$('#title').text('All Champions');
+
+			}else {
+
+				$('#title').text('Free Champions');
+			}
+
+			if(event.keyCode == 13) {
+
+				alert($('.champions').find('img:visible:first').attr('id'));
 			}
 		});
 	});
