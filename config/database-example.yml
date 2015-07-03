@@ -10,4 +10,4 @@ production:
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASS'] %>
 api:
-  key: < riot games API key >
+  key: "< riot games API key >"

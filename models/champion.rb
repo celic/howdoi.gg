@@ -12,4 +12,8 @@
 
 class Champion < ActiveRecord::Base
 
+	# Class functions
+	def self.free_list
+		Champion.all.where 'free is true'
+	end
 end
