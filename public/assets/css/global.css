@@ -136,8 +136,6 @@ h3 {
 	text-align: center;
 
 	overflow: hidden;
-
-	transition: max-height 4s;
 }
 
 	.champions.full {
@@ -151,6 +149,11 @@ h3 {
 
 		width: 9.5%;
 	}
+
+		.champions img.not-free {
+
+			display: none;
+		}
 
 .see-more {
 

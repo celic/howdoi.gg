@@ -25,6 +25,8 @@
 
 			event.preventDefault();
 
+			$('.not-free').show();
+
 			$('.champions').toggleClass('full');
 
 			if($('.champions').hasClass('full')) {
@@ -39,14 +41,16 @@
 		$('#filter').on('keyup', function( event ) {
 
 			var search = this.value.toLowerCase();
-			
-			$('img').show();
 
 			$('img').each(function() {
 
 				if(this.id.toLowerCase().indexOf(search) != 0) {
 
-					$(this).hide();
+					$(this).fadeOut(300);
+
+				}else {
+
+					$(this).fadeIn(300);
 				}
 			});
 
