@@ -237,7 +237,7 @@ h3 {
 
 			margin-right: 1%;
 
-			width: 15%;
+			max-width: 14%;
 
 			border: 1px solid #333333;
 		}
@@ -258,7 +258,7 @@ h3 {
 
 			margin-right: 5%;
 
-			width: 40%;
+			max-width: 40%;
 
 			border: 1px solid #333333;
 		}
