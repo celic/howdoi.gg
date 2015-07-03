@@ -1,8 +1,38 @@
 <%= partial :'layouts/navbar' %>
 
 <div class="container">
-	<h1>
-		<%= @champion.name %>
-		<span><%= @champion.desc %></span>
-	</h1>
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>
+				<%= @champion.name %>
+				<span><%= @champion.desc %></span>
+			</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="playstyle">
+				<div class="container-fluid">
+					<div class="col-xs-12 col-sm-8 col-sm-push-2 items">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/3255.png">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/3089.png">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/3157.png">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/3135.png">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/3027.png">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/3001.png">
+					</div>
+
+					<div class="col-xs-6 col-sm-2 col-sm-pull-8 sums">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/spell/SummonerFlash.png">
+						<img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/spell/SummonerHeal.png">
+					</div>
+
+					<div class="col-xs-6 col-sm-2 position">
+						<i class="fa fa-fire"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
