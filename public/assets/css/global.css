@@ -273,7 +273,31 @@ h3 {
 		text-align: center;
 	}
 
-		.playstyle .position > i {
+		.playstyle .position > .wrapper {
 
-			font-size: 3em;			
+			display: table;
+
+			width: 100%;
+			height: 100%;
+		}
+
+			.playstyle .position > .wrapper > div {
+
+				display: table-cell;
+
+				vertical-align: middle;
+			}
+
+		.playstyle .position i {
+
+			font-size: 2em;			
+		}
+
+		.playstyle .position p {
+
+			margin: 0;
+			
+			font-weight: 300;
+
+			text-transform: uppercase;
 		}

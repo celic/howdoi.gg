@@ -29,10 +29,39 @@
 					</div>
 
 					<div class="col-xs-6 col-sm-2 position">
-						<i class="fa fa-fire"></i>
+						<div class="wrapper">
+							<div>
+								<i class="fa fa-fire"></i>
+								<p>Mid Lane</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		var tallest = 0;
+
+		var columns =  [$('.items'), $('.position'), $('.sums')];
+
+		for(var i = 0; i < columns.length; i ++) {
+
+			if(columns[i].height() > tallest) {
+
+				tallest = columns[i].height();
+			}
+		}
+
+		for(var i = 0; i < columns.length; i ++) {
+
+			columns[i].height(tallest);
+		}
+	});
+
+</script>
