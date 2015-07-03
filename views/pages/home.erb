@@ -9,9 +9,7 @@
 
 	<div class="row" style="margin-bottom: 10vh;">
 		<div class="col-xs-12 col-md-10 col-md-offset-1">
-			<h3>Free Champions</h3>
-			<% @champs = ["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Ashe","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Cassiopeia","Cho'Gath","Corki","Darius","Diana","Dr. Mundo","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Irelia","Janna","Jarvan IV","Jax","Jayce","Jinx","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kennen","Kha'Zix","Kog'Maw","LeBlanc","Lee Sin","Leona","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","Master Yi","Miss Fortune","Mordekaiser","Morgana","Nami","Nasus","Nautilus","Nidalee","Nocturne","Nunu","Olaf","Orianna","Pantheon","Poppy","Quinn","Rammus","Rek'Sai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Syndra","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","Twisted Fate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","Vel'Koz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xerath","Xin Zhao","Yasuo","Yorick","Zac","Zed","Ziggs","Zilean","Zyra"]
-			%>
+			<h3 id="title">Free Champions</h3>
 			<%= partial :'layouts/champ_list', locals: { list: @champs, sifter: 'champion' } %>
 
 			<a class="see-more">See More</a>
@@ -31,8 +29,10 @@
 
 			if($('.champions').hasClass('full')) {
 				$('.see-more').text('See Fewer');
+				$('#title').text('All Champions');
 			}else {
 				$('.see-more').text('See More');
+				$('#title').text('Free Champions');
 			}
 		});
 	});
