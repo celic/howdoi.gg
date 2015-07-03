@@ -3,11 +3,13 @@
 # Table name: champions
 #
 #  id         :integer          not null, primary key
-#  riot_id    :integer
+#  riot_id    :string
 #  name       :string
 #  desc       :string
 #  created_at :datetime
 #  updated_at :datetime
+#  key        :string
+#  free       :boolean
 #
 
 class Champion < ActiveRecord::Base
