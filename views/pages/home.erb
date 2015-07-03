@@ -65,7 +65,7 @@
 
 			if(event.keyCode == 13) {
 
-				alert($('.champions').find('img:visible:first').attr('id'));
+				window.location.href = '/champions/' + $('.champions').find('img:visible:first').attr('id').toLowerCase();
 			}
 		});
 	});
