@@ -12,4 +12,10 @@
 
 class Game < ActiveRecord::Base
 
+
+	# Notes
+		# blue_team is code 100
+		# red_team is code 200
+		# blue winning is winner = true
+		# time stored in seconds only
 end

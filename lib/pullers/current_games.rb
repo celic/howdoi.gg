@@ -11,9 +11,11 @@ require_relative '../../models/game'
 db = YAML.load(ERB.new(File.read(File.join('config','database.yml'))).result)
 api_key = db['api']['key']
 
-test_players = Players.all(1..5)
+# Toggle for testing purposes
+# players = Players.all
+players = Players.all(1..5)
 
-test_players.all.each do |player|
+players.all.each do |player|
 
 	player_id = player.riot_id
 	player_games_json = open("https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/#{player_id}/recent?api_key=#{api_key}")
@@ -23,11 +25,29 @@ test_players.all.each do |player|
 	player_games_list.each do |game|
 
 		unless Game.find_by riot_id: game['gameId']
-			#Game.create(riot_id: champ['id'], name: name, desc: champ['title'], key: champ['key'], free: false)
+
+			# Collect arrays of players
+			game_players = game['fellowPlayers']
+			blue_team = red_team = []
+
+			game_players.each do |player|
+				blue_team << player['championId'] if player['teamId'] == 100 
+				red_team << player['championId']  if player['teamId'] == 200
+			end
+
+			# Lazily add current player to which ever team has only 4
+			blue_team << game['championId'] if blue_team.count == 4
+			red_team << game['championId'] if red_team.count == 4
+
+			winner = game['stats']['win']
+			seconds = game['stats']['timePlayed']
+
+			Game.create(riot_id: game['gameId'], blue_team: blue_team, red_team: red_team, winner: winner, time: seconds)
 		end
 	end
 end
 
+#  Notes: Data in game for quick developer reference
 # {
 #          "fellowPlayers": [
 #             {
