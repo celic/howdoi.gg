@@ -39,9 +39,13 @@ players.all.each do |player|
 			blue_team << game['championId'] if blue_team.count == 4
 			red_team << game['championId'] if red_team.count == 4
 
+            # Determine game winner
 			winner = game['stats']['win']
+			
+			# Determine game time
 			seconds = game['stats']['timePlayed']
 
+            # Create database entry
 			Game.create(riot_id: game['gameId'], blue_team: blue_team, red_team: red_team, winner: winner, time: seconds)
 		end
 	end
