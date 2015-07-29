@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703030652) do
+ActiveRecord::Schema.define(version: 20150729044447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "builds", force: :cascade do |t|
+    t.integer "champion_id"
+    t.integer "role"
+    t.integer "items",           default: [], array: true
+    t.integer "summoner_spells", default: [], array: true
+  end
 
   create_table "champions", force: :cascade do |t|
     t.string   "riot_id"

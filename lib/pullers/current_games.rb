@@ -24,8 +24,14 @@ players.all.each do |player|
 
 	player_games_list.each do |game|
 
-		unless Game.find_by riot_id: game['gameId']
+        game_in_db = Game.find_by riot_id: game['gameId']
 
+        # Determine and store game data 
+		unless game_in_db
+    
+            # Skip if it wasn't a ranked game
+            next if game['subType'] != 'RANKED_SOLO_5x5' or game['subType'] != 'RANKED_PREMADE_5x5'
+    
 			# Collect arrays of players
 			game_players = game['fellowPlayers']
 			blue_team = red_team = []
@@ -46,8 +52,15 @@ players.all.each do |player|
 			seconds = game['stats']['timePlayed']
 
             # Create database entry
-			Game.create(riot_id: game['gameId'], blue_team: blue_team, red_team: red_team, winner: winner, time: seconds)
+			game_in_db = Game.create(riot_id: game['gameId'], blue_team: blue_team, red_team: red_team, winner: winner, time: seconds)
 		end
+		
+		# Find and store player build
+		    # TODO:
+		    # Determine champion
+		    # Determine summoner spells
+		    # Determine role 
+		    # Determine end game items
 	end
 end
 
