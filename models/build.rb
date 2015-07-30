@@ -11,7 +11,6 @@
 
 class Build < ActiveRecord::Base
 
-
     # Member functions
     def role_to_string
         if role == 1
