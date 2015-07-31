@@ -26,4 +26,8 @@ class Build < ActiveRecord::Base
         end
         "unknown"
     end
+    
+    def sort_items
+        
+    end 
 end 
