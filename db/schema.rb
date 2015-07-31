@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702205602) do
+ActiveRecord::Schema.define(version: 20150729044447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "builds", force: :cascade do |t|
+    t.integer "champion_id"
+    t.integer "role"
+    t.integer "items",           default: [], array: true
+    t.integer "summoner_spells", default: [], array: true
+  end
 
   create_table "champions", force: :cascade do |t|
     t.string   "riot_id"
@@ -24,6 +31,14 @@ ActiveRecord::Schema.define(version: 20150702205602) do
     t.datetime "updated_at"
     t.string   "key"
     t.boolean  "free"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "blue_team", default: [], array: true
+    t.integer "red_team",  default: [], array: true
+    t.boolean "winner"
+    t.integer "time",      default: 0
+    t.string  "riot_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -38,6 +53,11 @@ ActiveRecord::Schema.define(version: 20150702205602) do
     t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.string "riot_id"
   end
 
 end
