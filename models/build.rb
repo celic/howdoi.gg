@@ -30,4 +30,14 @@ class Build < ActiveRecord::Base
     def sort_items
         
     end 
+    
+    def as_json(options = {})
+        json = {
+            id: id,
+            champion_id: champion_id,
+            role: role,
+            items: items,
+            summoner_spells: summoner_spells
+        }
+    end
 end 

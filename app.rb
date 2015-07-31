@@ -2,10 +2,22 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/partial'
 require 'require_all'
+require 'json'
 
 require_relative 'config/environments'
 
 require_all 'models'
+
+before do
+	headers 'Access-Control-Allow-Origin' => 'http://localhost:9000'
+	headers 'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept'
+
+	if request.request_method == 'OPTIONS'
+		headers 'Access-Control-Allow-Methods' => 'GET'
+
+		halt 200
+	end
+end
 
 get '/' do
 
@@ -27,3 +39,13 @@ get '/champions/:key' do
 
 	erb :'champions/show'
 end
+
+get '/api/champions/:id/?' do
+    content_type :json 
+    
+    #role = default
+    role = params[:role] unless params[:role].nil?
+    
+    
+    
+end 
