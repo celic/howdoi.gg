@@ -34,7 +34,7 @@ get '/champions/:key' do
 
 	unless @champion
 
-		# some sort of 404
+		erb :'pages/404'
 	end
 
 	erb :'champions/show'
