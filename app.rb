@@ -46,6 +46,8 @@ get '/api/champions/:id/?' do
     #role = default
     role = params[:role] unless params[:role].nil?
     
+    build = Build.find_by champion: id, role: role 
     
+    build.to_json
     
 end 
