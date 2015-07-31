@@ -57,8 +57,8 @@ get 'api/champions/list/?' do
     search = params[:search] 
     
     if search.nil?
-        Champions.all.to_json
+        Champion.all.to_json
     else 
-        Champions.find_by(name: search).to_json
+        Champion.find_by(name: search).to_json
     end 
 end

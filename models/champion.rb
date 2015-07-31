@@ -15,7 +15,7 @@
 class Champion < ActiveRecord::Base
 
     # Member functions
-    def as_json
+    def as_json(options = {})
         json = {
             id: id, 
             riot_id: riot_id,
