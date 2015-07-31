@@ -49,5 +49,16 @@ get '/api/champions/:id/?' do
     build = Build.find_by champion: id, role: role 
     
     build.to_json
-    
 end 
+
+get 'api/champions/list/?' do
+    content_type :json 
+    
+    search = params[:search] 
+    
+    if search.nil?
+        Champions.all.to_json
+    else 
+        Champions.find_by(name: search).to_json
+    end 
+end

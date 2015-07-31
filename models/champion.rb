@@ -14,6 +14,18 @@
 
 class Champion < ActiveRecord::Base
 
+    # Member functions
+    def as_json
+        json = {
+            id: id, 
+            riot_id: riot_id,
+            name: name,
+            desc: desc,
+            key: key,
+            free: free
+        }
+    end 
+
 	# Class functions
 	def self.free_list
 		Champion.all.where 'free is true'
