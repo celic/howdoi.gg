@@ -6,6 +6,7 @@ require 'sinatra/activerecord'
 
 require_relative '../../models/player'
 require_relative '../../models/game'
+require_relative '../../models/build'
 
 # Find API key
 db = YAML.load(ERB.new(File.read(File.join('config','database.yml'))).result)
@@ -13,7 +14,7 @@ api_key = db['api']['key']
 
 # Toggle for testing purposes
 # players = Player.all
-players = Player.all.take(2)
+players = Player.all.take(3)
 
 players.each do |player|
 
@@ -23,17 +24,24 @@ players.each do |player|
 	player_games_list = player_games_full['games']
 
     # Limit API hits for testing
-    games_list = player_games_list.all.take(5)
+    games_list = player_games_list.take(2)
 
 	player_games_list.each do |game|
 
         game_in_db = Game.find_by riot_id: game['gameId']
 
+        puts "Searched for game"
+
         # Determine and store game data 
-		unless game_in_db
+		if game_in_db.nil?
+    
+            puts "Game not found in database"
+            puts game['subType']
     
             # Skip if it wasn't a ranked game
-            next if game['subType'] != 'RANKED_SOLO_5x5' or game['subType'] != 'RANKED_PREMADE_5x5'
+            next unless game['subType'].include?('RANKED_SOLO_5x5') or game['subType'].include?('RANKED_PREMADE_5x5')
+    
+            puts "Game is ranked"
     
 			# Collect arrays of players
 			game_players = game['fellowPlayers']
