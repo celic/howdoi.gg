@@ -19,13 +19,22 @@ before do
 	end
 end
 
+################################################
+#
+# Home page 
+#
 get '/' do
 
 	@champs = Champion.home_list
 
 	erb :'pages/home'
 end
+################################################
 
+################################################
+#
+# Champion pages
+#
 get '/champions/:key' do
 
 	key = params[:key].downcase
@@ -46,9 +55,9 @@ get '/api/champions/:id/?' do
     #role = default
     role = params[:role] unless params[:role].nil?
     
-    build = Build.find_by champion: id, role: role 
+    builds = Build.find_by champion: id, role: role 
     
-    build.to_json
+    builds.to_json
 end 
 
 get 'api/champions/list/?' do
@@ -62,3 +71,4 @@ get 'api/champions/list/?' do
         Champion.find_by(name: search).to_json
     end 
 end
+################################################
