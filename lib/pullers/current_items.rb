@@ -21,6 +21,13 @@ Item.delete_all
 # Add list of items
 items_list.each do |item|
 
+    id = item[1]["id"]
+    
+    current_item = open("https://global.api.pvp.net/api/lol/static-data/na/v1.2/item/#{id}?itemData=gold&api_key=#{api_key}")
+    item_spec = JSON.parse current_item.read
+    
+    gold_value = item_spec["gold"]["total"]
+
 	# Add to the db
-	Item.create(riot_id: item[1]["id"], name: item[1]["name"], desc: item[1]["description"])
+	Item.create(riot_id: item[1]["id"], name: item[1]["name"], desc: item[1]["description"], gold_value: gold_value)
 end
