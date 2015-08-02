@@ -13,7 +13,7 @@ api_key = db['api']['key']
 
 # Toggle for testing purposes
 # players = Players.all
-players = Players.all(1..5)
+players = Players.all(1..2)
 
 players.all.each do |player|
 
@@ -21,6 +21,9 @@ players.all.each do |player|
 	player_games_json = open("https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/#{player_id}/recent?api_key=#{api_key}")
 	player_games_full = JSON.parse player_games_json.read
 	player_games_list = player_games_full['games']
+
+    # Limit API hits for testing
+    games_list = player_games_list.all(1..5)
 
 	player_games_list.each do |game|
 
