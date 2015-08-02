@@ -30,18 +30,11 @@ players.each do |player|
 
         game_in_db = Game.find_by riot_id: game['gameId']
 
-        puts "Searched for game"
-
         # Determine and store game data 
 		if game_in_db.nil?
     
-            puts "Game not found in database"
-            puts game['subType']
-    
             # Skip if it wasn't a ranked game
             next unless game['subType'].include?('RANKED_SOLO_5x5') or game['subType'].include?('RANKED_PREMADE_5x5')
-    
-            puts "Game is ranked"
     
 			# Collect arrays of players
 			game_players = game['fellowPlayers']
