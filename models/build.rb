@@ -28,7 +28,7 @@ class Build < ActiveRecord::Base
     end
     
     def sort_items
-        
+        items.sort{|x, y| Item.find_by(riot_id: x).gold_value <=> Item.find_by(riot_id: y).gold_value}
     end 
     
     def as_json(options = {})
